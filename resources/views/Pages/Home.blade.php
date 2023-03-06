@@ -6,12 +6,6 @@
             <section>
                 @include('Components.Menu')
             </section>
-            {{-- <section id="خدماتنا">
-        @include('Components.OurServices')
-    </section> --}}
-            {{-- <section id="الفيديو">
-        @include('Components.Videos')
-    </section> --}}
         </div>
     </div>
 @endsection
