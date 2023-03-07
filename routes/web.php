@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Pages/Home');
+Route::redirect("/","ar");
+
+Route::group([
+    'prefix' => '{locale?}',
+    'middleware' => 'set.locale',
+    'where' => ['locale' => '(ar|en|hr)']
+], function () {
+ 
+
+Route::get('/', [HomeController::class, 'index']);
+
+// Route::get('/', function () {
+
+//     return view('Pages/Home');
+// });
+
 });
