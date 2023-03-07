@@ -19,4 +19,11 @@ class HomeController extends Controller
         }
         return view('Pages.Home')->with('open_model', false);
     }
+
+    public function switch($lang)
+    {
+        session(['locale' => $lang]);
+        // dd();
+        return back();
+    }
 }

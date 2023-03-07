@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\App;
 |
 */
 
-Route::redirect("/","ar");
+// Route::redirect("/","ar");
+Route::get('/lang/{lang}', [HomeController::class, 'switch'])->name('lang.switch');
 
 Route::group([
     'prefix' => '{locale?}',
