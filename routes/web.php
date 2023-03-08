@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 
@@ -30,4 +32,13 @@ Route::get('/', [HomeController::class, 'index']);
 });
 
 // AdminReactRoute
-Route::get('admin/home',[HomeController::class, 'reactPages']);
+Route::get('admin/home',[AdminAdminController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+Route::get('/Admin', [App\Http\Controllers\HomeController::class, 'Admin'])->name('Admin');
