@@ -26,4 +26,8 @@ class HomeController extends Controller
         // dd();
         return back();
     }
+    public function reactPages()
+    {
+        return view('ReactHome');
+    }
 }

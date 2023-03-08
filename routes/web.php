@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\App;
 |
 */
 
-// Route::redirect("/","ar");
+Route::redirect("/","ar");
 Route::get('/lang/{lang}', [HomeController::class, 'switch'])->name('lang.switch');
 
 Route::group([
@@ -27,10 +27,7 @@ Route::group([
  
 
 Route::get('/', [HomeController::class, 'index']);
-
-// Route::get('/', function () {
-
-//     return view('Pages/Home');
-// });
-
 });
+
+// AdminReactRoute
+Route::get('admin/home',[HomeController::class, 'reactPages']);
