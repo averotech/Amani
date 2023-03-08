@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('category_name_ar');
             $table->string('category_name_en')->nullable();
             $table->string('category_name_hr')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

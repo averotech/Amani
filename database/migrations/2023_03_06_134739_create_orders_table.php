@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('orders_details_en', 600)->nullable();
             $table->string('orders_details_hr', 600)->nullable();
             $table->string('orders_price');
-
+            $table->softDeletes();
             $table->timestamps();
         });
     }
