@@ -8,6 +8,8 @@
 .env
 .env.backup
 .env.production
+package-lock.json
+composer.lock
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
