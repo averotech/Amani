@@ -26,19 +26,20 @@ Route::group([
     'middleware' => 'set.locale',
     'where' => ['locale' => '(ar|en|hr)']
 ], function () {
- 
+
 
 Route::get('/', [HomeController::class, 'index']);
 });
 
-// AdminReactRoute
-Route::get('admin/home',[AdminAdminController::class, 'index']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+// Route::get('/Admin', [HomeController::class, 'Admin'])->name('Admin');
 
+// AdminReactRoute
+Route::group(['middleware' => ['auth:sanctum']], function () {
+Route::get('admin/home',[AdminAdminController::class, 'index']);
+});
 
-
-Route::get('/Admin', [App\Http\Controllers\HomeController::class, 'Admin'])->name('Admin');
