@@ -1,4 +1,4 @@
-<div class="relative w-full bg-[#0497AD] min:h-[578px] ">
+<div class="relative w-full bg-[#0497AD] min:h-[578px] " style="height: 100vh">
     <img class="hidden sm:block absolute right-4 h-[95%]" src="{{ asset('assets/images/right_Footer_Logo.png') }}"
         alt="logo">
     <img class="hidden sm:block absolute left-4 h-[90%]" src="{{ asset('assets/images/left_Footer_Logo.png') }}"

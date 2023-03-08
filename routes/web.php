@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController as AdminAdminController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Pages/Home');
+Route::redirect("/","ar");
+Route::get('/lang/{lang}', [HomeController::class, 'switch'])->name('lang.switch');
+
+Route::group([
+    'prefix' => '{locale?}',
+    'middleware' => 'set.locale',
+    'where' => ['locale' => '(ar|en|hr)']
+], function () {
+ 
+
+Route::get('/', [HomeController::class, 'index']);
 });
+
+// AdminReactRoute
+Route::get('admin/home',[AdminAdminController::class, 'index']);
 
 Auth::routes();
 

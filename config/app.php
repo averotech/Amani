@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Gaza',
 
     /*
     |--------------------------------------------------------------------------
@@ -193,9 +193,11 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\NovaServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
     ],
+    'locales' => ['en', 'ar','hr'],
 
     /*
     |--------------------------------------------------------------------------

@@ -1,5 +1,17 @@
+@php
+    $dir = (config('app.locale') == 'ar' || config('app.locale') == 'hr') ? 'rtl' : 'ltr';
+    config(['app.direction' => $dir]);
+
+    function langUrl($lang = '') {
+        $url = url()->full()."/";
+
+            return str_replace("/".config('app.locale')."/", "/".$lang."/", $url);
+    } 
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -18,7 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </head>
 
-<body dir="rtl">
+<body dir={{ $dir }} >
 <style>
         body {
             font-family: 'FF Shamel';
