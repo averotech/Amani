@@ -1,17 +1,3 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
@@ -29,11 +15,11 @@ import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-  { name: 'Live Orders', href: '#', icon: UsersIcon, current: false },
-  { name: 'Orders', href: '#', icon: FolderIcon, current: false },
-  { name: 'Restaurant', href: '#', icon: CalendarIcon, current: false },
-  { name: 'Menu', href: '#', icon: InboxIcon, current: false },
-  { name: 'Kds', href: '#', icon: ChartBarIcon, current: false },
+  { name: 'Team', href: '#', icon: UsersIcon, current: false },
+  { name: 'Projects', href: '#', icon: FolderIcon, current: false },
+  { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
+  { name: 'Documents', href: '#', icon: InboxIcon, current: false },
+  { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
@@ -45,7 +31,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function SideBar() {
+export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -83,7 +69,7 @@ export default function SideBar() {
                 leaveFrom="translate-x-0"
                 leaveTo="-translate-x-full"
               >
-                <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-gray-800 pt-5 pb-4">
+                <Dialog.Panel className="relative flex w-full max-w-xs flex-1 flex-col bg-white pt-5 pb-4">
                   <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-300"
@@ -107,7 +93,7 @@ export default function SideBar() {
                   <div className="flex flex-shrink-0 items-center px-4">
                     <img
                       className="h-8 w-auto"
-                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                      src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                       alt="Your Company"
                     />
                   </div>
@@ -119,14 +105,14 @@ export default function SideBar() {
                           href={item.href}
                           className={classNames(
                             item.current
-                              ? 'bg-gray-900 text-white'
-                              : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                              ? 'bg-gray-100 text-gray-900'
+                              : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
                             'group flex items-center rounded-md px-2 py-2 text-base font-medium'
                           )}
                         >
                           <item.icon
                             className={classNames(
-                              item.current ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300',
+                              item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
                               'mr-4 h-6 w-6 flex-shrink-0'
                             )}
                             aria-hidden="true"
@@ -148,28 +134,28 @@ export default function SideBar() {
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex min-h-0 flex-1 flex-col bg-gray-800">
-            <div className="flex h-16 flex-shrink-0 items-center bg-gray-900 px-4">
+          <div className="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 bg-white pt-5">
+            <div className="flex flex-shrink-0 items-center px-4">
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 alt="Your Company"
               />
             </div>
-            <div className="flex flex-1 flex-col overflow-y-auto">
-              <nav className="flex-1 space-y-1 px-2 py-4">
+            <div className="mt-5 flex flex-grow flex-col">
+              <nav className="flex-1 space-y-1 px-2 pb-4">
                 {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                      item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
                       'group flex items-center rounded-md px-2 py-2 text-sm font-medium'
                     )}
                   >
                     <item.icon
                       className={classNames(
-                        item.current ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300',
+                        item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
                         'mr-3 h-6 w-6 flex-shrink-0'
                       )}
                       aria-hidden="true"
@@ -181,7 +167,7 @@ export default function SideBar() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:pl-64">
+        <div className="flex flex-1 flex-col lg:pl-64">
           <div className="sticky top-0 z-10 flex h-16 flex-shrink-0 bg-white shadow">
             <button
               type="button"
