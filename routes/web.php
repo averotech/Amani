@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController as AdminAdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ItemController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -61,9 +62,21 @@ Route::group([
     ->group(function () {
         Route::get('/', 'index')->name('Category.index');
         Route::get('/store', 'store')->name('Category.store');
-        Route::get('/edit/{id}', 'edit')->name('Category.edit');
-        Route::get('/{id}', 'get')->name('Category.get');
+        Route::get('/update/{id}', 'update')->name('Category.update');
+        Route::get('/{id}', 'show')->name('Category.show');
+        Route::get('destroy/{id}', 'destroy')->name('Item.destroy');
     });
 
+    Route::controller(ItemController::class)
+    ->prefix('Item')
+    ->group(function () {
+        Route::get('/', 'index')->name('Item.index');
+        Route::get('/store', 'store')->name('Item.store');
+        Route::get('/update/{id}', 'update')->name('Item.update');
+        Route::get('show/{id}', 'show')->name('Item.show');
+        Route::get('destroy/{id}', 'destroy')->name('Item.destroy');
+
+    });
 
 });
+

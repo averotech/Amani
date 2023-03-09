@@ -12,23 +12,32 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name_ar');
-            $table->string('name_en')->nullable();
-            $table->string('name_hr')->nullable();
+            $table->string('name_en');
+            $table->string('name_hr');
             $table->string('description_ar', 500)->nullable();
             $table->string('description_en', 500)->nullable();
             $table->string('description_hr', 500)->nullable();
-            $table->string('category_icon')->nullable();
+            $table->unsignedBigInteger('category_id');
+            $table->boolean('is_new')->default(0);
+            $table->string('wieght')->nullable();
+            $table->string('price');
+            $table->string('image')->nullable();
+            $table->boolean('spicy')->default(0);
+            $table->boolean('free_gluten')->default(0);
+            $table->boolean('vegetarian')->default(0);
+            $table->boolean('potato')->default(0);
             $table->integer('sort_order')->nullable();
             $table->integer('is_published')->default(1);
 
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
-        DB::statement('UPDATE categories SET sort_order = id');
 
+        DB::statement('UPDATE categories SET sort_order = id');
     }
 
     /**
@@ -36,6 +45,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('items');
     }
 };
