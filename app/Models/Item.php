@@ -6,12 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-
-class Category extends Model
+class Item extends Model
 {
     use HasFactory, SoftDeletes;
-
-
     /**
      * The attributes that are mass assignable.
      *
@@ -24,7 +21,15 @@ class Category extends Model
         'description_ar',
         'description_en',
         'description_hr',
-        'category_icon',
+        'category_id',
+        'is_new',
+        'wieght',
+        'price',
+        'image',
+        'spicy',
+        'free_gluten',
+        'vegetarian',
+        'potato',
         'sort_order',
         'is_published',
 
@@ -32,38 +37,32 @@ class Category extends Model
     ];
 
 
-
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
      */
-    protected $hidden = [
-
-    ];
+    protected $hidden = [];
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [
+    protected $casts = [];
 
-    ];
-    protected $with = ['Items'];
 
-    public static function boot()
+    protected static function booted()
     {
-      parent::boot();
 
-      static::creating(function ($Category) {
+        parent::booted();
 
-      });
+        static::creating(function ($Item) {
+        });
     }
 
-
-    public function Items()
+    public function Category()
     {
-        return $this->hasMany(Item::class);
+        return $this->belongsTo(Category::class);
     }
 }
