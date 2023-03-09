@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController as AdminAdminController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\App;
 |
 */
 
-Route::redirect("/","ar");
+Route::redirect("/", "ar");
 Route::get('/lang/{lang}', [HomeController::class, 'switch'])->name('lang.switch');
 
 Route::group([
@@ -26,19 +27,43 @@ Route::group([
     'middleware' => 'set.locale',
     'where' => ['locale' => '(ar|en|hr)']
 ], function () {
- 
 
-Route::get('/', [HomeController::class, 'index']);
+
+    Route::get('/', [HomeController::class, 'index']);
 });
 
-// AdminReactRoute
-Route::get('admin/home',[AdminAdminController::class, 'index']);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+// Route::get('/Admin', [HomeController::class, 'Admin'])->name('Admin');
+
+// AdminReactRoute
+// Route::group(['middleware' => ['auth:sanctum']], function () {
+// Route::get('admin/home',[AdminAdminController::class, 'index']);
+
+// //categories api
+// Route::get('/GetCategories',[CategoryController::class, 'index']);
+
+// });
 
 
+Route::group([
+    'prefix' => 'admin',
+    'middleware' => 'auth:sanctum',
+], function () {
+    Route::get('home', [AdminAdminController::class, 'index']);
 
 
-Route::get('/Admin', [App\Http\Controllers\HomeController::class, 'Admin'])->name('Admin');
+    Route::controller(CategoryController::class)
+    ->prefix('Category')
+    ->group(function () {
+        Route::get('/', 'index')->name('Category.index');
+        Route::get('/store', 'store')->name('Category.store');
+        Route::get('/edit/{id}', 'edit')->name('Category.edit');
+        Route::get('/{id}', 'get')->name('Category.get');
+    });
+
+
+});
