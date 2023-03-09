@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\App;
 */
 
 Route::redirect("/", "ar");
+Route::redirect("/admin", "/admin/home");
 Route::get('/lang/{lang}', [HomeController::class, 'switch'])->name('lang.switch');
 
 Route::group([
