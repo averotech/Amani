@@ -27,22 +27,27 @@ class CategoryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'category_name_ar' => 'required|string|min:3|max:50',
+                'name_ar' => 'required|string|min:3|max:50',
 
             ],
             [
-                'category_name_ar.required' => 'الرجاء ادخال الاسم. ',
-                'category_name_ar.string' => 'الرجاء ادخال الاسم بشكل صحيح . ',
-                'category_name_ar.min' => 'الاسم يجب ان يكون على الأقل 3 حروف. ',
-                'category_name_ar.max' => 'الاسم يجب ان لا يزيد عن 50 حرف. ',
+                'name_ar.required' => 'الرجاء ادخال الاسم. ',
+                'name_ar.string' => 'الرجاء ادخال الاسم بشكل صحيح . ',
+                'name_ar.min' => 'الاسم يجب ان يكون على الأقل 3 حروف. ',
+                'name_ar.max' => 'الاسم يجب ان لا يزيد عن 50 حرف. ',
 
             ]
         );
         if ($validator->passes()) {
             Category::create([
-                'category_name_ar' => $request['category_name_ar'],
-                'category_name_en' => $request['category_name_en'],
-                'category_name_hr' => $request['category_name_hr'],
+                'name_ar' => $request['name_ar'],
+                'name_en' => $request['name_en'],
+                'name_hr' => $request['name_hr'],
+                'description_ar' => $request['description_ar'],
+                'description_en' => $request['description_en'],
+                'description_hr' => $request['description_hr'],
+                'sort_order' => $request['sort_order'],
+                'is_published' => $request['is_published'],
             ]);
             return response()->json(['success' => 'تم انشاء بنجاح']);
         }
@@ -50,38 +55,48 @@ class CategoryController extends Controller
         return response()->json(['error' => $validator->errors()->all()]);
     }
 
-    public function edit(Request $request,$id)
+    public function update(Request $request, string $id)
     {
 
 
         $validator = Validator::make(
             $request->all(),
             [
-                'category_name_ar' => 'required|string|min:3|max:50',
+                'name_ar' => 'required|string|min:3|max:50',
 
             ],
             [
-                'category_name_ar.required' => 'الرجاء ادخال الاسم. ',
-                'category_name_ar.string' => 'الرجاء ادخال الاسم بشكل صحيح . ',
-                'category_name_ar.min' => 'الاسم يجب ان يكون على الأقل 3 حروف. ',
-                'category_name_ar.max' => 'الاسم يجب ان لا يزيد عن 50 حرف. ',
+                'name_ar.required' => 'الرجاء ادخال الاسم. ',
+                'name_ar.string' => 'الرجاء ادخال الاسم بشكل صحيح . ',
+                'name_ar.min' => 'الاسم يجب ان يكون على الأقل 3 حروف. ',
+                'name_ar.max' => 'الاسم يجب ان لا يزيد عن 50 حرف. ',
 
             ]
         );
         if ($validator->passes()) {
             Category::where('id', $id)
                 ->update([
-                    'category_name_ar' => $request['category_name_ar'],
-                    'category_name_en' => $request['category_name_en'],
-                    'category_name_hr' => $request['category_name_hr'],
+                    'name_ar' => $request['name_ar'],
+                    'name_en' => $request['name_en'],
+                    'name_hr' => $request['name_hr'],
+                    'description_ar' => $request['description_ar'],
+                    'description_en' => $request['description_en'],
+                    'description_hr' => $request['description_hr'],
+                    'sort_order' => $request['sort_order'],
+                    'is_published' => $request['is_published'],
                 ]);
             return response()->json(['success' => 'تم انشاء بنجاح']);
         }
 
         return response()->json(['error' => $validator->errors()->all()]);
     }
-    public function get($id)
+    public function show(string $id)
     {
-       return Category::where('id', $id)->get();
+        return Category::where('id', $id)->get();
+    }
+
+    public function destroy(string $id)
+    {
+        Category::where('id', $id)->delete();
     }
 }
