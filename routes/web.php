@@ -55,8 +55,15 @@ Route::group([
 ], function () {
     Route::get('home', [AdminAdminController::class, 'index']);
 
-    //categories api
-    Route::get('/get-categories', [CategoryController::class, 'index']);
-    Route::get('/edit-categories', [CategoryController::class, 'edit']);
+
+    Route::controller(CategoryController::class)
+    ->prefix('Category')
+    ->group(function () {
+        Route::get('/', 'index')->name('Category.index');
+        Route::get('/store', 'store')->name('Category.store');
+        Route::get('/edit/{id}', 'edit')->name('Category.edit');
+        Route::get('/{id}', 'get')->name('Category.get');
+    });
+
 
 });
