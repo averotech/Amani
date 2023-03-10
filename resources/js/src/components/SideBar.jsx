@@ -205,10 +205,10 @@ export default function SideBar() {
             </div>
           </div>
 
-          <main className="flex-1">
+          <main className="flex-1 bg-[#f6f7fd] " style={{minHeight:'700px' }}>
             <div className="py-6">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                {location.pathname == "/admin/home" ? <Dashboard /> : location.pathname == "/admin/orders" ? <Order /> : location.pathname == "/admin/menu" ? <MenuPg /> : <Kds />}
+                {location.pathname === "/admin/home" ? <Dashboard /> : location.pathname === "/admin/orders" ? <Order /> : location.pathname === "/admin/menu" ? <MenuPg /> : <Kds />}
               </div>
             </div>
           </main>
