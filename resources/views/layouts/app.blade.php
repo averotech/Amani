@@ -1,3 +1,11 @@
+@php
+    $dir = (config('app.locale') == 'ar' || config('app.locale') == 'hr') ? 'rtl' : 'ltr';
+    config(['app.direction' => $dir]);
+    function langUrl($lang = '') {
+        $url = url()->full()."/";
+            return str_replace("/".config('app.locale')."/", "/".$lang."/", $url);
+    } 
+@endphp
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
