@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -16,6 +17,14 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+        \Outl1ne\NovaSettings\NovaSettings::addSettingsFields([
+            Textarea::make('right Text ar ', 'right_Text_ar'),
+            Textarea::make('right Text en ', 'right_Text_en'),
+            Textarea::make('right Text hr ', 'right_Text_hr'),
+            Textarea::make('left Text ar', 'left_Text_ar'),
+            Textarea::make('left Text en', 'left_Text_en'),
+            Textarea::make('left Text hr', 'left_Text_hr'),
+        ]);
     }
 
     /**
@@ -41,9 +50,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     protected function gate()
     {
         Gate::define('viewNova', function ($user) {
-            return in_array($user->email, [
-                //
-            ]);
+            return true;
         });
     }
 
@@ -66,7 +73,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools()
     {
-        return [];
+        return [
+            new \Outl1ne\NovaSettings\NovaSettings
+        ];
     }
 
     /**

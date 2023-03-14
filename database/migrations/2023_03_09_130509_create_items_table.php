@@ -21,14 +21,8 @@ return new class extends Migration
             $table->string('description_en', 500)->nullable();
             $table->string('description_hr', 500)->nullable();
             $table->unsignedBigInteger('category_id');
-            $table->boolean('is_new')->default(0);
-            $table->string('wieght')->nullable();
             $table->string('price');
             $table->string('image')->nullable();
-            $table->boolean('spicy')->default(0);
-            $table->boolean('free_gluten')->default(0);
-            $table->boolean('vegetarian')->default(0);
-            $table->boolean('potato')->default(0);
             $table->integer('sort_order')->nullable();
             $table->integer('is_published')->default(1);
 
