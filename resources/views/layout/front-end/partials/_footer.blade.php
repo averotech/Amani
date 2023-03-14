@@ -13,14 +13,10 @@
         </div>
         <div class="flex flex-row justify-between items-center md:flex-nowrap gap-y-6 flex-wrap gap-x-16 mt-8 mb-8">
             <p class="text-lg md:text-base font-sansLight text-white lg:max-w-xl text-justify md:text-right ">
-                هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان
-                لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من
-                الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.
+                {{ nova_get_setting('right_Text_'.config('app.locale'), ' ');  }}
             </p>
             <p class="text-lg md:text-base font-sansLight text-white lg:max-w-xl text-justify md:text-right">
-                هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور النشر. كان
-                لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من
-                الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.
+                {{ nova_get_setting('left_Text_'.config('app.locale'), ' ');  }}
             </p>
         </div>
     </div>

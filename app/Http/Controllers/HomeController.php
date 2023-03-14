@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
@@ -17,7 +18,9 @@ class HomeController extends Controller
             Cookie::queue(Cookie::make('last_opened', $current_time, 30));
             return view('Pages.Home')->with('open_model', true);
         }
-        return view('Pages.Home')->with('open_model', false);
+        $categories = Category::where([['is_published', 1]])->with('Items')->get();
+        // dd($categories);
+        return view('Pages.Home',compact('categories'))->with('open_model', false);
     }
 
     public function switch($lang)

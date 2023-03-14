@@ -17,13 +17,8 @@ return new class extends Migration
             $table->string('name_ar');
             $table->string('name_en')->nullable();
             $table->string('name_hr')->nullable();
-            $table->string('description_ar', 500)->nullable();
-            $table->string('description_en', 500)->nullable();
-            $table->string('description_hr', 500)->nullable();
-            $table->string('category_icon')->nullable();
             $table->integer('sort_order')->nullable();
             $table->integer('is_published')->default(1);
-
             $table->softDeletes();
             $table->timestamps();
         });
