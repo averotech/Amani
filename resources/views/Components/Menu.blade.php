@@ -27,10 +27,10 @@
         <div class="bg-[#FFFFFFD4] flex flex-col items-start justify-start mt-6 w-full px-4 mb-8">
             <!--First Item -->
             @foreach ($category->Items->sortBy('sorting_order') as $item)
-                <div class="w-full">
+                <div class="w-full MenuContainer">
                     <div
-                        class="hidden md:flex flex-row items-center justify-between px-14 pt-14 w-full pb-8 border-b-[1px] border-b-[#0697AD]">
-                        <div class="flex flex-col items-start justify-start">
+                        class="hidden md:flex flex-row items-center justify-between px-14 pt-8 w-full pb-8 border-b-[1px] border-b-[#0697AD]">
+                        <div class="flex flex-col items-start justify-start ">
                             @if (app()->getLocale() == 'ar')
                                 <p class="text-[#0697AD]  text-xl ">{{ $item->name_ar }}</p>
                             @elseif (app()->getLocale() == 'en')
@@ -56,7 +56,7 @@
                         @endif
 
                     </div>
-                    <div class="md:hidden flex flex-col pt-14 w-full pb-8 border-b-[1px] gap-y-2 border-b-[#0697AD]">
+                    <div class="md:hidden MenuContainer flex flex-col pt-14 w-full pb-8 border-b-[1px] gap-y-2 border-b-[#0697AD]">
                         <div class=" flex flex-row items-center justify-between">
                             @if (app()->getLocale() == 'ar')
                                 <p class="text-[#0697AD] text-base ">
