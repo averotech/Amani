@@ -32,27 +32,28 @@
                         class="hidden md:flex flex-row items-center justify-between px-14 pt-14 w-full pb-8 border-b-[1px] border-b-[#0697AD]">
                         <div class="flex flex-col items-start justify-start">
                             @if (app()->getLocale() == 'ar')
-                                <p class="text-[#0697AD] text-xl ">{{ $item->name_ar }}</p>
+                                <p class="text-[#0697AD]  text-xl ">{{ $item->name_ar }}</p>
                             @elseif (app()->getLocale() == 'en')
-                                <p class="text-[#0697AD] text-2xl">{{ $item->name_en }}</p>
+                                <p class="text-[#0697AD] font-bold text-2xl">{{ $item->name_en }}</p>
                             @else
-                                <p class="text-[#0697AD] text-2xl"> {{ $item->name_hr }}</p>
+                                <p class="text-[#0697AD] font-bold text-2xl"> {{ $item->name_hr }}</p>
                             @endif
                             @if (app()->getLocale() == 'ar')
                                 <p class=" text-[#0697AD] text-base font-sansLight">{{ $item->description_ar }}</p>
                             @elseif (app()->getLocale() == 'en')
-                                <p class="text-[#0697AD] text-lg font-sansLight max-w-4xl"> {{ $item->description_en }}</p>
+                                <p class="text-[#0697AD] text-lg  font-sansLight max-w-4xl"> {{ $item->description_en }}
+                                </p>
                             @else
-                                <p class="text-[#0697AD] text-xl font-sans">{{ $item->description_hr }}</p>
+                                <p class="text-[#0697AD] text-xl  font-sans max-w-4xl">{{ $item->description_hr }}</p>
                             @endif
                         </div>
                         @if (app()->getLocale() == 'ar')
-                        <p class="text-[#CEC308] text-xl">{{ $item->price_ar }}</p>
-                    @elseif (app()->getLocale() == 'en')
-                    <p class="text-[#CEC308] text-xl">{{ $item->price_en }}</p>
-                    @else
-                    <p class="text-[#CEC308] text-xl">{{ $item->price_hr }}</p>
-                    @endif
+                            <p class="text-[#CEC308] text-xl">{{ $item->price_ar }}</p>
+                        @elseif (app()->getLocale() == 'en')
+                            <p class="text-[#CEC308] text-xl">{{ $item->price_en }}</p>
+                        @else
+                            <p class="text-[#CEC308] text-xl">{{ $item->price_hr }}</p>
+                        @endif
 
                     </div>
                     <div class="md:hidden flex flex-col pt-14 w-full pb-8 border-b-[1px] gap-y-2 border-b-[#0697AD]">
@@ -62,11 +63,17 @@
                                     {{ $item->name_ar }}
                                 </p>
                             @elseif (app()->getLocale() == 'en')
-                                <p class="text-[#0697AD] text-lg"> {{ $item->name_en }}</p>
+                                <p class="text-[#0697AD] font-bold text-lg"> {{ $item->name_en }}</p>
                             @else
-                                <p class="text-[#0697AD] text-lg"> {{ $item->name_hr }}</p>
+                                <p class="text-[#0697AD] font-bold text-lg"> {{ $item->name_hr }}</p>
                             @endif
-                            <p class="text-[#CEC308] text-lg">{{ $item->price }}</p>
+                            @if (app()->getLocale() == 'ar')
+                                <p class="text-[#CEC308] text-xl">{{ $item->price_ar }}</p>
+                            @elseif (app()->getLocale() == 'en')
+                                <p class="text-[#CEC308] text-xl">{{ $item->price_en }}</p>
+                            @else
+                                <p class="text-[#CEC308] text-xl">{{ $item->price_hr }}</p>
+                            @endif
                         </div>
                         @if (app()->getLocale() == 'ar')
                             <p class="text-[#0697AD] text-base font-sansLight max-w-md">
