@@ -19,6 +19,8 @@
     <title>Amani LandingPage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
+ <link rel="stylesheet" href="{{ asset('assets/front-end/css/main.css') }}?v={{ rand(0, 99) }}">
+
     {{-- <link rel="stylesheet" href="{{ asset('assets/front-end/css/main.css') }}?v={{ rand(0, 99) }}">
     <link rel="stylesheet" href="{{ asset('assets/front-end/css/responsive.css') }}?v={{ rand(0, 99) }}"> --}}
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> --}}
