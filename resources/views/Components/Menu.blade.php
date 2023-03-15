@@ -1,6 +1,3 @@
-@php
-
-@endphp
 <div class="pt-28 flex flex-col items-center md:items-start justify-start ">
     <!--First Category -->
     @foreach ($categories->sortBy('sorting_order') as $category)
