@@ -52,6 +52,26 @@
                         </div>
                         <p class="text-[#CEC308] text-xl">{{ $item->price }}</p>
                     </div>
+                    <div class="md:hidden flex flex-col pt-14 w-full pb-8 border-b-[1px] border-b-[#0697AD]">
+                        <div class=" flex flex-row items-center justify-between">
+                            <p class="text-[#0697AD] text-lg ">       @if (app()->getLocale() == 'ar')
+                                {{ $item->name_ar }}
+                            @elseif (app()->getLocale() == 'en')
+                                {{ $item->name_en }}
+                            @else
+                                {{ $item->name_hr }}
+                            @endif</p>
+                            <p class="text-[#CEC308] text-lg">{{ $item->price }}</p>
+                        </div>
+                        <p class="text-[#0697AD] text-base font-sansLight">   @if (app()->getLocale() == 'ar')
+                            {{ $item->description_ar }}
+                        @elseif (app()->getLocale() == 'en')
+                            {{ $item->description_en }}
+                        @else
+                            {{ $item->description_hr }}
+                        @endif
+                        </p>
+                    </div>
 
                 </div>
             @endforeach
