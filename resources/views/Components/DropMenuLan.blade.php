@@ -3,7 +3,13 @@
         <button
             class=" bg-[#FFFFFFD4] rounded-lg text-sm px-4 py-3.5 text-center  hover:bg-blue-200  text-[#0697AD] hover:text-gray-400">
            <div class="flex flex-row items-center justify-center gap-x-2 hover:text-white focus:text-black ">
-            <span class="mr-1  mt-1 ">{{ __('Select Language') }}</span>
+               @if (app()->getLocale() == 'ar')
+            <span class="mr-1  mt-1 text-lg">العربية </span>
+            @elseif (app()->getLocale() == 'en')
+            <span class="mr-1  mt-1 text-lg">English </span>
+            @else
+            <span class="mr-1  mt-1 text-lg">עברית </span>
+            @endif
             <svg xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 0 512 512" width="22" fill="#0697AD"
                 class="ml-3">
                 <path
@@ -38,16 +44,13 @@
                 </path>
             </svg>
         </div>
-            {{-- <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-            </svg> --}}
         </button>
-        <ul class="dropdown-menu absolute hidden w-full text-gray-700 pt-2  z-10 origin-top-right rounded-md bg-[#FFFFFFD4] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <li class=""><a class="block py-2 px-4 hover:bg-blue-300 text-sm font-sans  dark:hover:text-white"
+        <ul class="dropdown-menu absolute hidden w-full text-gray-700 pt-2 z-10 origin-top-right rounded-md bg-[#FFFFFFD4] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+            <li class=""><a class="block py-2 px-4 hover:bg-blue-300 font-bold text-sm font-sans  dark:hover:text-white"
                     href="/ar">العربية</a></li>
-            <li class=""><a class="block py-2 px-4 hover:bg-blue-300 text-sm font-sans dark:hover:text-white"
+            <li class=""><a class="block py-2 px-4 hover:bg-blue-300 text-base font-bold font-sans dark:hover:text-white"
                     href="/en">English</a></li>
-            <li class=""><a class="rounded-b block py-2 px-4 hover:bg-blue-300 text-sm font-sans dark:hover:text-white"
+            <li class=""><a class="rounded-b block py-2 px-4 font-bold text-base hover:bg-blue-300  font-sans dark:hover:text-white"
                     href="/hr">עברית</a></li>
         </ul>
     </div>
