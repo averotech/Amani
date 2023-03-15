@@ -81,7 +81,10 @@ class Item extends Resource
             Textarea::make('description ar')->hideFromIndex(),
             Textarea::make('description en')->hideFromIndex(),
             Textarea::make('description hr')->hideFromIndex(),
-            Text::make('price')->rules('required'),
+
+            Text::make('price ar')->rules('required'),
+            Text::make('price en')->hideFromIndex()->rules('required')->hideFromIndex(),
+            Text::make('price hr')->hideFromIndex()->rules('required')->hideFromIndex(),
         ];
     }
     public static function  afterCreate(Request $request, $model)
