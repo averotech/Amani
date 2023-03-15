@@ -1,6 +1,7 @@
 <div class="pt-28 flex flex-col items-center md:items-start justify-start ">
     <!--First Category -->
-    @foreach ($categories->sortBy('sorting_order') as $category)
+
+    @foreach ($categories as $category)
         <div
             class="bg-[#FFFFFFD4] px-4 md:px-1 md:w-[308px] min-h-16 py-2 flex flex-row items-center justify-center gap-x-3 border-b-[16px]  border-[#CEC306]">
             <svg class="" width="43" height="40" viewBox="0 0 45 48" fill="none"

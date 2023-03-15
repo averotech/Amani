@@ -70,6 +70,6 @@ class Category extends Model
 
     public function Items()
     {
-        return $this->hasMany(Item::class);
+        return $this->hasMany(Item::class)->orderBy('sort_order', 'asc');
     }
 }
