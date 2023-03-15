@@ -11,7 +11,7 @@
         <div class="w-[25%] md:w-72 border-b-4 mx-8 md:mx-0 pb-2 border-b-[#CEC306]">
             <p class="text-xl  text-white">قصتنا</p>
         </div>
-        <div class="flex flex-row justify-between items-center md:flex-nowrap gap-y-6 flex-wrap gap-x-16 mt-8 mb-8">
+        <div class="flex flex-row mt-14 justify-between items-center md:flex-nowrap gap-y-6 flex-wrap gap-x-16  mb-8">
             <p class="text-lg md:text-base font-sansLight text-white lg:max-w-xl text-justify md:text-right ">
                 {{ nova_get_setting('right_Text_'.config('app.locale'), ' ');  }}
             </p>
