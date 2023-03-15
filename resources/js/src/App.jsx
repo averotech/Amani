@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router';
 import SideBarltr from './components/SideBarltr';
 import Dashboard from './Pages/Dashboard';
-import MenuPg from './Pages/MenuPg';
+import MenuPg from './Pages/MenuPage/MenuPg';
 import Order from './Pages/Order';
 import Kds from './Pages/Kds';
 import SideBarModel from './components/SideBarModel';
+import EditMenuPage from './Pages/MenuPage/EditMenuPage';
 
 
 const App = () => {
@@ -19,6 +20,8 @@ const App = () => {
           <Routes>
             <Route path="admin/home" element={<Dashboard />} />
             <Route exact path="admin/menu" element={<MenuPg />} />
+            <Route exact path="admin/menu/:id" element={<EditMenuPage />} />
+
             <Route exact path="/admin/orders" element={<Order />} />
             <Route exact path="/admin/kds" element={<Kds />} />
           </Routes>
