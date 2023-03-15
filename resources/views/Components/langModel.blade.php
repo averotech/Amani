@@ -13,17 +13,17 @@
                     <div class="relative inline-block text-left ">
                         <ul class="lang-list">
                             <li class="text-right">
-                                <a rel="alternate"  href="{{ langUrl('en') }}" class="block py-2 px-4 hover:bg-gray-100 hover:text-[#992A3A] rounded-[5px] text-center text-[15px]">
+                                <a rel="alternate"  href="/en" class="block py-2 px-4 hover:bg-gray-100 hover:text-[#992A3A] rounded-[5px] text-center text-[15px]">
                                     English
                                 </a>
                             </li>
                             <li class="text-right">
-                                <a rel="alternate"  href="{{ langUrl('ar') }}" class="block py-2 px-4 hover:bg-gray-100 hover:text-[#992A3A] rounded-[5px] text-center text-[15px]">
+                                <a rel="alternate"  href="/ar" class="block py-2 px-4 hover:bg-gray-100 hover:text-[#992A3A] rounded-[5px] text-center text-[15px]">
                                     العربية
                                 </a>
                             </li>
                             <li class="text-right">
-                                <a rel="alternate"  href="{{ langUrl('hr') }}" class="block py-2 px-4 hover:bg-gray-100 hover:text-[#992A3A] rounded-[5px] text-center text-[15px]">
+                                <a rel="alternate"  href="/hr" class="block py-2 px-4 hover:bg-gray-100 hover:text-[#992A3A] rounded-[5px] text-center text-[15px]">
                                     עברית
                                 </a>
                             </li>

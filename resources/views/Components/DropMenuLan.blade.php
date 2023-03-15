@@ -44,11 +44,11 @@
         </button>
         <ul class="dropdown-menu absolute hidden w-full text-gray-700 pt-2  z-10 origin-top-right rounded-md bg-[#FFFFFFD4] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <li class=""><a class="block py-2 px-4 hover:bg-blue-300 text-sm font-sans  dark:hover:text-white"
-                    href="{{ langUrl('ar') }}">العربية</a></li>
+                    href="/ar">العربية</a></li>
             <li class=""><a class="block py-2 px-4 hover:bg-blue-300 text-sm font-sans dark:hover:text-white"
-                    href="{{ langUrl('en') }}">English</a></li>
+                    href="/en">English</a></li>
             <li class=""><a class="rounded-b block py-2 px-4 hover:bg-blue-300 text-sm font-sans dark:hover:text-white"
-                    href="{{ langUrl('hr') }}">עברית</a></li>
+                    href="/hr">עברית</a></li>
         </ul>
     </div>
 
