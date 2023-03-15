@@ -46,7 +46,14 @@
                                 <p class="text-[#0697AD] text-xl font-sans">{{ $item->description_hr }}</p>
                             @endif
                         </div>
-                        <p class="text-[#CEC308] text-xl">{{ $item->price }}</p>
+                        @if (app()->getLocale() == 'ar')
+                        <p class="text-[#CEC308] text-xl">{{ $item->price_ar }}</p>
+                    @elseif (app()->getLocale() == 'en')
+                    <p class="text-[#CEC308] text-xl">{{ $item->price_en }}</p>
+                    @else
+                    <p class="text-[#CEC308] text-xl">{{ $item->price_hr }}</p>
+                    @endif
+
                     </div>
                     <div class="md:hidden flex flex-col pt-14 w-full pb-8 border-b-[1px] gap-y-2 border-b-[#0697AD]">
                         <div class=" flex flex-row items-center justify-between">
