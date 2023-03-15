@@ -11,7 +11,7 @@ import EditMenuPage from './Pages/MenuPage/EditMenuPage';
 const App = () => {
   return (
     <>
-    <SideBarModel />
+      <SideBarModel />
       <div className='grid grid-cols-12	gap-4'>
         <div className='hidden md:flex md:col-span-3 lg:col-span-2'>
           <SideBarltr />
